@@ -14,7 +14,7 @@
         }
 
         // Метод исполняемый как продолжение задачи.
-        static void ContinuationTask(Task task)/////   идея CallBack только в разных потоках
+        static void ContinuationTask(Task task)/////   идея CallBack 
         {
 
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId);

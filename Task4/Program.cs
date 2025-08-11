@@ -4,7 +4,7 @@
     {
         static void MyTask()
         {
-            // Thread.CurrentThread.IsBackground = false; // Снять комментарий.   сделать поток основным а не фоновым
+           // Thread.CurrentThread.IsBackground = false; // Снять комментарий.   сделать поток основным а не фоновым
 
             for (int i = 0; i < 80; i++)
             {

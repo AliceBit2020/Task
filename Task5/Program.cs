@@ -2,12 +2,12 @@
 {
     class Program
     {
-        static void MyTask(object arg)
+        static void MyTask(object arg)/////object <------  string  boxing
         {
             for (int i = 0; i < 80; i++)
             {
                 Thread.Sleep(25);
-                Console.Write(arg as string);
+                Console.Write(arg as string);//// object ---------> string  unboxing
             }
         }
 
@@ -30,8 +30,10 @@
             // попадет в качестве значения свойства AsyncState
             Console.WriteLine("\n[{0}]", task.AsyncState as string);
 
+            task.Wait();
+
             // Delay
-            Console.ReadKey();
+           /// Console.ReadKey();
         }
     }
 }

@@ -22,7 +22,7 @@
             //TaskFactory factory = new TaskFactory();
             //Task task = factory.StartNew(MyTask);
 
-           // Task task1 = Task.Run(MyTask);//////   рекомендованный вариант
+           Task task1 = Task.Run(MyTask);//////   рекомендованный вариант
 
           //  task1.Wait();
 

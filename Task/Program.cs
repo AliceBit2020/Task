@@ -26,15 +26,15 @@ namespace Taskk
 
             Console.WriteLine("Main: запущен в потоке # {0}", threadId);
 
-            //Action action = new Action(MyTask);
+            Action action = new Action(MyTask);
 
-            //Task task = new Task(action); // Создание экземпляра задачи.            
-            //task.Start();                 // Запуск задачи на выполнение асинхронно в пуле потоков
+            Task task = new Task(action); // Создание экземпляра задачи.            
+            task.Start();                 // Запуск задачи на выполнение асинхронно в пуле потоков
 
-           Task tsk= Task.Run(MyTask);/////   асинхронно в пуле потоков
+           //  Task tsk= Task.Run(MyTask);/////   асинхронно в пуле потоков
+            //tsk.Wait();  ////  catch exeption
 
-
-           // task.RunSynchronously();    // Запуск задачи на выполнение синхронно.
+            // task.RunSynchronously();    // Запуск задачи на выполнение синхронно.
 
             for (int i = 0; i < 10; i++)
             {
@@ -42,7 +42,7 @@ namespace Taskk
                 Thread.Sleep(200);
             }
 
-            Console.WriteLine("\nMain: завершен в потоке # {0}", threadId);
+            //Console.WriteLine("\nMain: завершен в потоке # {0}", threadId);
 
             // Delay
             Console.ReadKey();
