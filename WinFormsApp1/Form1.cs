@@ -13,12 +13,12 @@ namespace WinFormsApp1
          int MyTask(int count)
         {
             int sum = 0;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Thread.Sleep(count);
                 sum += i;
-                if (i == 5)
-                    throw new Exception();
+                //if (i == 5)
+                //    throw new Exception();
             }
             MessageBox.Show("ok");
             return sum;
@@ -48,16 +48,19 @@ namespace WinFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             //1.
-            Task task1 = Task.Run(() => MyTask(100)).ContinueWith(ContinuationTask);
-             Task task2 = Task.Run(() => MyTask(1000)).ContinueWith(ContinuationTask);
+             Task task1 = Task.Run(() => MyTask(100)).ContinueWith(ContinuationTask);
+
+
+
+            // Task task2 = Task.Run(() => MyTask(1000)).ContinueWith(ContinuationTask);
 
             //2.
 
-            // Task<int> task = Task.Run(() => MyTask(10));/////  return  Task<int>
+            //Task<int> task = Task.Run(() => MyTask(10));/////  return  Task<int>
 
             //string res = task.Result.ToString();
 
-            // label1.Text=res;
+            //label1.Text = res;
 
 
 

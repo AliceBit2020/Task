@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task9", "Task9\Task9.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task10Continuation", "Task10\Task10Continuation.csproj", "{50E28BFC-2922-46E1-A3EA-838248A26032}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task11Result_Continue", "Task11\Task11Result_Continue.csproj", "{EC3230A5-0608-46D5-9B2C-83836662C083}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task11Result_Continue_CallBack", "Task11\Task11Result_Continue_CallBack.csproj", "{EC3230A5-0608-46D5-9B2C-83836662C083}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task12", "Task12\Task12.csproj", "{C8311997-C6A0-48DC-8A52-C35AFC9858CD}"
 EndProject

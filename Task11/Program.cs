@@ -88,13 +88,13 @@
             task.Wait();
             Console.WriteLine(taskInt.Result);
 
-            ///  a)Continue
+            ///  a)Continue CallBack метод що спрацює після того як завершиться задача
 
             var task1 = Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin);
 
             task1.Wait();
 
-            /////  b)Continue
+            /////  b)Continue CallBack метод що спрацює після того як завершиться задача
 
             //Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin).Wait(); 
 
