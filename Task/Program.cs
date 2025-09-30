@@ -28,7 +28,7 @@ namespace Taskk
 
             Action action = new Action(MyTask);
 
-            Task task = new Task(action); // Создание экземпляра задачи.            
+            Task task = new Task(MyTask); // Создание экземпляра задачи.            
             task.Start();                 // Запуск задачи на выполнение асинхронно в пуле потоков
 
            //  Task tsk= Task.Run(MyTask);/////   асинхронно в пуле потоков
