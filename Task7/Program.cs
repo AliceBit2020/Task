@@ -24,13 +24,13 @@
 
             task1.Start();
             task2.Start();
-           task1.Wait();
+          // task2.Wait();
 
 
             Console.WriteLine("Id задачи task1: " + task1.Id);
             Console.WriteLine("Id задачи task2: " + task2.Id);
 
-           Task.WaitAll(task1, task2);////  дождаться всех
+        // Task.WaitAll(task1, task2);////  дождаться всех
             Task.WaitAny(task1, task2);///// дождаться хотя бы одну
 
             Console.WriteLine("Основной поток завершен.");

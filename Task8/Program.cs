@@ -16,13 +16,15 @@
             // Вариант 1.
             Task task = Task.Factory.StartNew(MyTask);
             //При запуске задачи через TaskFactory, вызов метода Start() не требуется.
-           //// task.Start();
+           // task.Start();
 
             // Вариант 2.
-            //TaskFactory factory = new TaskFactory();
-            //Task task = factory.StartNew(MyTask);
+            TaskFactory factory = new TaskFactory();
+            Task task1 = factory.StartNew(MyTask);
 
-           Task task1 = Task.Run(MyTask);//////   рекомендованный вариант
+
+            ///Варіант 3
+           Task task2 = Task.Run(MyTask);//////   рекомендованный вариант
 
           //  task1.Wait();
 

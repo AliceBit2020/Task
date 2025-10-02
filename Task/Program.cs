@@ -29,13 +29,20 @@ namespace Taskk
             Action action = new Action(MyTask);
 
             Task task = new Task(MyTask); // Создание экземпляра задачи.            
-            task.Start();                 // Запуск задачи на выполнение асинхронно в пуле потоков
+             task.Start();                 // Запуск задачи на выполнение асинхронно в пуле потоков
 
-           //  Task tsk= Task.Run(MyTask);/////   асинхронно в пуле потоков
-            //tsk.Wait();  ////  catch exeption
+            Task tsk = Task.Run(MyTask);/////   асинхронно в пуле потоков
+            Task tsk1 = Task.Run(MyTask);
 
-            // task.RunSynchronously();    // Запуск задачи на выполнение синхронно.
 
+            tsk.Wait();  ////  catch exeption !!!!!!!!    block
+            tsk1.Wait();
+
+            Task.WaitAll(tsk, tsk1);///блокування поки не виконаються всі
+            Task.WaitAny(tsk, tsk1);/// блокування поки не виконається один з них
+
+            //task.RunSynchronously();    // Запуск задачи на выполнение синхронно.
+            //MyTask(); // Запуск задачи на выполнение синхронно.
             for (int i = 0; i < 10; i++)
             {
                 Console.Write(". ");
