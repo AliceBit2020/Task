@@ -22,6 +22,7 @@
             {
                 task.Start();
                 task.Wait(); // Для обработки исключения обязательно вызвать Wait!
+
             }
             catch (Exception ex)
             {
@@ -37,6 +38,7 @@
             }
 
             Console.WriteLine("Основной поток завершен.");
+            
 
             // Delay
             Console.ReadKey();

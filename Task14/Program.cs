@@ -4,16 +4,16 @@
     {
         static int MyTask()
         {
-            int result = 255;
+            byte result = 255;//0..255
 
-            checked // Убрать комментарий.
+            checked // Убрать комментарий. при переповнені буде Exeption
             {
-                result += 1;
+                result += 1;//256 --->0
             }
 
             Thread.Sleep(3000);
 
-            return result;
+            return Convert.ToInt32(result);
         }
 
         static  void  Main()
@@ -24,22 +24,30 @@
             ///1,
             //task.Start();
 
-            /////task.Wait();   
+            ///////task.Wait();   
 
             //int a = task.Result;//////   блокировка потока и ожидание результата
             //Console.WriteLine(a);
 
             /////2,
 
+           
+
+            /// task.Status  RanToCompletion 5 The task completed execution successfully.
+                        
+            
+            task.ContinueWith(t => Console.WriteLine("Result from continuation : " + t.Result), TaskContinuationOptions.OnlyOnRanToCompletion);
+
+
+            /// task.Status  Faulted	7	The task completed due to an unhandled exception.
+
             Action<Task<int>> continuation;
 
-            continuation = t => Console.WriteLine("Result from continuation : " + task.Result);
-            task.ContinueWith(continuation, TaskContinuationOptions.OnlyOnRanToCompletion);
+            continuation = t => Console.WriteLine("Inner Exception : " + t.Exception.InnerException.Message);
 
-            //continuation = t => Console.WriteLine("Inner Exception : " + task.Exception.InnerException.Message);
-            //task.ContinueWith(continuation, TaskContinuationOptions.OnlyOnFaulted);
+            task.ContinueWith(continuation, TaskContinuationOptions.OnlyOnFaulted);
 
-             task.Start();
+            task.Start();
 
             // Delay
 

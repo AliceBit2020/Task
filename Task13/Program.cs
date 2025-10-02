@@ -55,12 +55,13 @@
                 try
                 {
                     cancellation.Cancel(); // Отмена выполняемой задачи.
+                   
                     task.Wait(); // Для обработки исключения обязательно вызвать Wait!
                 }
                 catch (AggregateException e)
                 {
-                    if (task.IsCanceled)
-                        Console.WriteLine("\nЗадача отменена.\n");
+                    
+                    
 
                     Console.WriteLine("Inner Exception : " + e.InnerException.GetType());
                     Console.WriteLine("Message         : " + e.InnerException.Message);
@@ -68,6 +69,9 @@
                 }
 
                 Console.WriteLine("Основной поток завершен.");
+
+                //if (task.IsCanceled)
+                //    Console.WriteLine("\nЗадача отменена.\n");
 
                 // Delay
                 Console.ReadKey();

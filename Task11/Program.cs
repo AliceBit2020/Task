@@ -58,45 +58,47 @@
             context.a = 2;
             context.b = 3;
 
-            Task<int> task;
+            //Task<int> task;
 
-            //// 1 вариант
-            task = new Task<int>(Sum, context);
-            task.Start();
+            ////// 1 вариант
+            //task = new Task<int>(Sum, context);
+            //task.Start();
 
-            //// 2 вариант
-            TaskFactory<int> factory = new TaskFactory<int>();
-            task = factory.StartNew(Sum, context);
+            ////// 2 вариант
+            //TaskFactory<int> factory = new TaskFactory<int>();
+            //task = factory.StartNew(Sum, context);
 
-            //// 3 вариант
-            task = Task<int>.Factory.StartNew(Sum, context);
+            ////// 3 вариант
+            //task = Task<int>.Factory.StartNew(Sum, context);
 
-            task.Wait();/////   thread.join()
+            //task.Wait();/////   thread.join()
 
-            Console.WriteLine("Результат выполнения задачи Sum = " + task.Result);//// ждем результат!!!!!!!!!!!!!
+            //Console.WriteLine("Результат выполнения задачи Sum = " + task.Result);//// ждем результат!!!!!!!!!!!!!
 
-            //Console.WriteLine("Основной поток завершен.");
+            ////Console.WriteLine("Основной поток завершен.");
 
 
 
-            //////  06.04  Lesson
+            ////////  06.04  Lesson
 
             Task<int> taskInt = Task.Run<int>(() => Sum(context));
 
            
 
-            taskInt.Wait();
-            Console.WriteLine(taskInt.Result);
+            //taskInt.Wait();
+            //Console.WriteLine(taskInt.Result);
+
+            //////////////////////////////////////////////////////////////////////////////////
 
             /////  a)Continue CallBack метод що спрацює після того як завершиться задача
 
-            var task1 = Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin);
+           Task task1 = Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin);
 
-            //task1.Wait();
+            task1.Wait();
 
             /////  b)Continue CallBack метод що спрацює після того як завершиться задача
 
-            //Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin).Wait(); 
+            Task.Run<int>(() => Sum(context)).ContinueWith(PrintContin).Wait(); 
 
 
             ///  1. ContinueWith<>  (PrintContin2)  получить код Метод continuation возвращает значение !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
